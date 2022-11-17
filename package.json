@@ -6,7 +6,11 @@
   "scripts": {
     "test": "cypress open",
     "test:dashboard": "npx cypress run --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
-    "test:cypress": "npx cypress open"
+    "test:cypress": "npx cypress open",
+    "test:spec1": "npx cypress run --spec 'cypress/e2e/login.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
+    "test:spec2": "npx cypress run --spec 'cypress/e2e/mainPage.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
+    "test:spec3": "npx cypress run --spec 'cypress/e2e/booking.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66", 
+    "test:parallel": "npm run test:spec1 --group Spec1 --ci-build-id 1 & npm run test:spec2 --group Spec1 --ci-build-id 1 & npm run test:spec3 --group Spec1 --ci-build-id 1"
   },
   "author": "",
   "license": "ISC",
