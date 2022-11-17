@@ -13,4 +13,6 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           # test: test
-          test_parallel_record: test:parallel 
+          test: npx cypress run --spec 'cypress/e2e/login.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 &
+                npx cypress run --spec 'cypress/e2e/mainPage.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 &
+                npx cypress run --spec 'cypress/e2e/booking.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 
