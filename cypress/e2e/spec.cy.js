@@ -32,8 +32,7 @@ describe("login admin", () => {
 it("booking three tickets on next day", () => {
   cy.visit(admin.URL);
   cy.login(admin.login, admin.password);
-  const firstHall = cy
-    .xpath(selectors.firstHall)
+  cy.xpath(selectors.firstHall)
     .then(($el) => $el.textContent)
     .should("have.text", "data.newHall");
   cy.xpath(selectors.firstHall)
