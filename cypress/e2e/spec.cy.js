@@ -29,7 +29,7 @@ describe("login admin", () => {
   });
 });
 
-it.only("booking three tickets on next day", () => {
+it("booking three tickets on next day", () => {
   cy.visit(admin.URL);
   cy.login(admin.login, admin.password);
   const firstHall = cy
