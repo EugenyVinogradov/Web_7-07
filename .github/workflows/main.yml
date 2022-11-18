@@ -13,7 +13,5 @@ jobs:
         uses: cypress-io/github-action@v4
         # with:
         #   # test: test
-      - run: npx cypress run --group AdminSpecs --spec 'cypress/e2e/adminSpecs/login.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 &
-          npx cypress run --group AdminSpecs --spec 'cypress/e2e/adminSpecs/actions.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 
-      - run: npx cypress run --group UserSpecs --spec 'cypress/e2e/userSpecs/mainPage.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 &
-          npx cypress run --group UserSpecs --spec 'cypress/e2e/userSpecs/booling.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 
+      - run: npx cypress run --spec 'cypress/e2e/adminSpecs/*.js' --group AdminSpecs --ci-build-id 4  --parallel --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66  --browser chrome
+      - run: npx cypress run --spec 'cypress/e2e/userSpecs/*.js' --group UserSpecs --ci-build-id 4 --parallel --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 --browser edge
