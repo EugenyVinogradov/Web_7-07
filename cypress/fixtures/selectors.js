@@ -15,7 +15,15 @@ const selectors = {
   "bookingButton": ".acceptin-button",
   "bookingTitle": "h2.ticket__check-title",
   "bookingSeatsAndRows": ".ticket__info:nth-child(2)",
-  "bookingHall": ".ticket__info:nth-child(3)"
+  "bookingHall": ".ticket__info:nth-child(3)",
+  "addHallButton": ".button__add-hall",
+  "inputField": "[name='name']",
+  "submitHallButton": "[data-event='hall_add']",
+  "hallInListHalls": "",
+  "deleteButton": "//ul/li[text()='New Hall']//child::button",
+  "submitDeleteButton": "[data-event='hall_del']",
+  "secondSubmitDeleteButton": "[data-event='hall_del']",
+
 
 }
 

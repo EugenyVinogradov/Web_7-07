@@ -5,22 +5,29 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress open",
-    "test:dashboard": "npx cypress run --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
-    "test:cypress": "npx cypress open",
-    "test:spec1": "npx cypress run --spec 'cypress/e2e/login.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
-    "test:spec2": "npx cypress run --spec 'cypress/e2e/mainPage.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
-    "test:spec3": "npx cypress run --spec 'cypress/e2e/booking.cy.js' --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66", 
-    "test:parallel": "npm run test:spec1 --group Spec1 --ci-build-id 2 & npm run test:spec2 --group Spec1 --ci-build-id 2 & npm run test:spec3 --group Spec1 --ci-build-id 2",
-    "test:parallel:chrome": "npm run test:parallel --browser chrome"
+    "test:dashboard:all": "npx cypress run --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66",
+    "test:cypress:all": "npx cypress open",
+    "test:parallel:chrome": "npm run test:parallel --browser chrome",
+    "test:parallel:edge": "npm run test:parallel --browser edge",
+    "test:parallel:electron": "npm run test:parallel --browser electron",
+    "test:adminSpecs": "npx cypress run --spec 'cypress/e2e/adminSpecs/*.js' --group AdminSpecs  --parallel --ci-build-id 3 --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66  --browser chrome",
+    "test:userSpecs": "npx cypress run --spec 'cypress/e2e/userSpecs/*.js' --group UserSpecs  --parallel --ci-build-id 3 --parallel --record --key 14eb653f-0cda-47fc-9684-9e86bd3f2f66 --browser edge",
+    "test:parallel": "npm run test:adminSpecs --group AdminSpecs --ci-build-id 1 & npm run test:userSpecs --group UserSpecs --ci-build-id 1",
+    "test:parallel:adminSpecs:chrome": "npm run test:adminSpecs --browser chrome",
+    "test:parallel:userSpecs:edge": "npm run test:userSpecs --browser edge",
+    "test:parallel:adminSpecs": "npm run test:adminSpecs",
+    "test:parallel:userSpecs": "npm run test:userSpecs",
+    "test:parallel:all:browsers": "npm run test:parallel:adminSpecs:chrome & npm run test:parallel:userSpecs:edge"
   },
-
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.7",
     "cypress": "^10.11.0"
   },
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "npm-run-all": "^4.1.5"
   }
 }
